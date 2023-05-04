@@ -14,6 +14,17 @@ const Home = () => {
             .catch(error => console.error(error))
     }, [])
 
+    const [allRecipes, setAllRecipes] = useState([]);
+
+    useEffect(() => {
+        fetch("http://localhost:5000/recipes}")
+            .then(res => res.json())
+            .then(data => setAllRecipes(data))
+            .catch(error => console.error(error))
+    }, [])
+
+    console.log(allRecipes);
+
     return (
         <div>
             <section className='container d-flex'>
