@@ -1,11 +1,12 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { getAuth, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { getAuth, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, GithubAuthProvider } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const googleAuthProvider = new GoogleAuthProvider();
+const githubAuthProvider = new GithubAuthProvider();
 
 
 const AuthProviders = ({ children }) => {
@@ -23,6 +24,10 @@ const AuthProviders = ({ children }) => {
 
     const signInWithGoogle = () => {
         return signInWithPopup(auth, googleAuthProvider);
+    }
+
+    const sighInWithGitHub = () => {
+        return signInWithPopup(auth, githubAuthProvider);
     }
 
     const logOut = () => {
@@ -47,6 +52,7 @@ const AuthProviders = ({ children }) => {
         createUser,
         signIn,
         signInWithGoogle,
+        sighInWithGitHub,
         logOut
     }
     return (

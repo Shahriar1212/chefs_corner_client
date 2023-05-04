@@ -6,7 +6,7 @@ import { AuthContext } from '../../Providers/AuthProviders';
 const Login = () => {
 
 
-    const { signIn, signInWithGoogle } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, sighInWithGitHub } = useContext(AuthContext);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -25,6 +25,28 @@ const Login = () => {
             console.log(error);
         })
 
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+    const handleGitHubSignIn = () => {
+        sighInWithGitHub()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     }
 
     return (
@@ -60,15 +82,12 @@ const Login = () => {
                 <div className="text-center">
                     <p className='text-success'>Not a member? <Link to="/register">Register</Link></p>
                     <p className='text-success'>or sign up with</p>
-                    <button type="button" className="btn btn-link btn-floating mx-1">
+                    <button type="button" onClick={handleGoogleSignIn} className="btn btn-link btn-floating mx-1">
                         <FaGoogle />
                     </button>
 
-                    <button type="button" className="btn btn-link btn-floating mx-1">
-                        <FaFacebookF />
-                    </button>
 
-                    <button type="button" className="btn btn-link btn-floating mx-1">
+                    <button type="button" onClick={handleGitHubSignIn} className="btn btn-link btn-floating mx-1">
                         <FaGithub />
                     </button>
 
