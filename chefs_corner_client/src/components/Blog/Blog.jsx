@@ -16,15 +16,15 @@ const Blog = () => {
                             There are more differences which are, given below,
                         </p>
 
-                        <h2>Controlled</h2>
+                        <h4 className='text-black'>Controlled</h4>
                         <li>It does not maintain its internal state.</li>
                         <li>Here, data is controlled by the parent component.</li>
                         <li>It accepts its current value as a prop.</li>
                         <li>It allows validation control.</li>
 
-                        <h2 className="text-black">
+                        <h4 className="text-black">
                         Uncontrolled
-                        </h2>
+                        </h4>
                         <li>It maintains its internal states.</li>
                         <li>Here, data is controlled by the DOM itself.</li>
                         <li>It uses a ref for their current values.</li>
