@@ -21,7 +21,6 @@ const ChefCard = (props) => {
                 
                 </div>
                 <Link to={`chef/${chef_id}`} className='btn btn-primary'>View Recipes</Link>
-                <button className='btn btn-primary'>View Recipes</button>
             </div>
         </div>
     );

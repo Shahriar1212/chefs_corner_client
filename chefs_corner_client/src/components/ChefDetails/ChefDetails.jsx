@@ -40,7 +40,7 @@ const ChefDetails = () => {
 
 
             <section className='container chef-recipes'>
-                <h3>My Popular Recipes</h3>
+                <h3 className='text-black'>My Popular Recipes</h3>
 
                 <div className='chefs-recipe'>
 

@@ -42,12 +42,12 @@ const router = createBrowserRouter([
       {
         path: "/chef/:chefId",
         element: <PrivateRoute><ChefDetails></ChefDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/chef/${params.chefId}`)
+        loader: ({params}) => fetch(`https://chefs-corner-server-chowdhuryshahriar12-gmailcom.vercel.app/chef/${params.chefId}`)
       },
       {
         path: "/recipe/:id",
         element: <PrivateRoute><RecipeDetails></RecipeDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/recipe/${params.id}`)
+        loader: ({params}) => fetch(`https://chefs-corner-server-chowdhuryshahriar12-gmailcom.vercel.app/recipe/${params.id}`)
       }
     ]
   },

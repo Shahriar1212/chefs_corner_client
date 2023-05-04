@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ChefCard from '../ChefCard/ChefCard';
 import './Home.css'
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
@@ -8,7 +9,7 @@ const Home = () => {
     const [chefs, setChefs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/chefs')
+        fetch('https://chefs-corner-server-chowdhuryshahriar12-gmailcom.vercel.app/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
             .catch(error => console.error(error))
@@ -30,20 +31,29 @@ const Home = () => {
 
             <section className='container'>
                 <h2>Top Chefs</h2>
-                
-                <h3>{chefs.length}</h3>
 
                 <div className='chef-card'>
 
-                
+
                     {
-                        chefs.map(chef => <ChefCard 
+                        chefs.map(chef => <ChefCard
                             key={chef.chef_id}
                             chef={chef}
                         ></ChefCard>)
                     }
                 </div>
             </section>
+
+
+            {/* <section>
+                <div className='chefs-recipe'>
+                    <div className='single-recipe-card'>
+                        <img className='recipe-image img-fluid' src="../../../public/images/recipe-1.jpg" alt="" />
+                        <h2 className='recipe-name'>{recipe_name}</h2>
+                        <Link className='btn btn-info'>View Details</Link>
+                    </div>
+                </div>
+            </section> */}
 
 
         </div>
