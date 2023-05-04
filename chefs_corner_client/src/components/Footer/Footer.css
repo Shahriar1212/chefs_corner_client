@@ -1,0 +1,24 @@
+footer{
+    background-color: black;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 60px;
+}
+
+.footer{
+    display: flex;
+    margin: 0 auto;
+}
+
+.col{
+    width: 400px;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+.col a, p,h3,h4{
+    color: wheat;
+    text-decoration: none;
+}
