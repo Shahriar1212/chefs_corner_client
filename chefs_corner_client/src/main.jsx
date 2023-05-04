@@ -14,6 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Blog from './components/Blog/Blog.jsx';
 import ChefDetails from './components/ChefDetails/ChefDetails.jsx';
 import RecipeDetails from './components/RecipeDetails/RecipeDetails.jsx';
+import AuthProviders from './Providers/AuthProviders.jsx';
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProviders>
+      <RouterProvider router={router} />
+    </AuthProviders>
   </React.StrictMode>,
 )

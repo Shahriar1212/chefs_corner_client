@@ -1,18 +1,43 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFacebookF, FaGoogle, FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const Login = () => {
+
+
+    const { signIn, signInWithGoogle } = useContext(AuthContext);
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email, password);
+
+        signIn(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
+    }
+
     return (
         <div>
-            <form className=' container mt-5 w-25'>
+            <form className=' container mt-5 w-25' onSubmit={handleLogin}>
                 <div className="form-outline mb-4">
-                    <input type="email" className="form-control" />
+                    <input type="email" name="email" className="form-control" />
+
                     <label className="form-label" >Email address</label>
                 </div>
 
                 <div className="form-outline mb-4">
-                    <input type="password" className="form-control" />
+                    <input type="password" name="password" className="form-control" />
                     <label className="form-label" >Password</label>
                 </div>
 
@@ -29,13 +54,14 @@ const Login = () => {
                     </div>
                 </div>
 
-                <button type="button" className="btn btn-primary btn-block mb-4">Sign in</button>
+                <button className="btn btn-primary">Login</button>
+
 
                 <div className="text-center">
                     <p className='text-success'>Not a member? <Link to="/register">Register</Link></p>
                     <p className='text-success'>or sign up with</p>
                     <button type="button" className="btn btn-link btn-floating mx-1">
-                    <FaGoogle />
+                        <FaGoogle />
                     </button>
 
                     <button type="button" className="btn btn-link btn-floating mx-1">
@@ -46,7 +72,7 @@ const Login = () => {
                         <FaGithub />
                     </button>
 
-                    
+
                 </div>
             </form>
         </div>

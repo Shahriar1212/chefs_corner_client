@@ -1,22 +1,49 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const Register = () => {
+
+
+    const {user, createUser} = useContext(AuthContext);
+
+    const handleregister = (event) => {
+
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const name = form.name.value;
+        const password = form.password.value;
+
+        console.log(name, email, password);
+
+        createUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            form.reset();
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
+
+
     return (
         <div>
-            <form className=' container mt-5 w-25'>
+            <form className=' container mt-5 w-25' onSubmit={handleregister}>
 
             <div className="form-outline mb-4">
                     <input type="text" className="form-control" />
                     <label className="form-label" >Your Name</label>
                 </div>
                 <div className="form-outline mb-4">
-                    <input type="email" className="form-control" />
+                <input type="email" name="email" className="form-control" />
                     <label className="form-label" >Email address</label>
                 </div>
 
                 <div className="form-outline mb-4">
-                    <input type="password" className="form-control" />
+                <input type="password" name="password" className="form-control" />
                     <label className="form-label" >Password</label>
                 </div>
 
@@ -26,19 +53,10 @@ const Register = () => {
                 </div>
 
                 <div className="row mb-4">
-                    {/* <div className="col d-flex justify-content-center">
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" value="" checked />
-                            <label className="form-check-label" > Remember me </label>
-                        </div>
-                    </div> */}
 
-                    {/* <div className="col">
-                        <a href="#!" className='text-primary'>Forgot password?</a>
-                    </div> */}
                 </div>
 
-                <button type="button" className="btn btn-primary btn-block mb-4">Sign Up</button>
+                <button className="btn btn-primary btn-block mb-4">Sign Up</button>
 
                 <div className="text-center">
                     <p className='text-success'>Already have an account? <Link to='/login'>LogIn</Link></p>
