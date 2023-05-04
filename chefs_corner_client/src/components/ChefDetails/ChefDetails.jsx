@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import './ChefDetails.css'
+import RecipeCard from '../RecipeCard/RecipeCard';
 
 const ChefDetails = () => {
 
@@ -17,8 +18,8 @@ const ChefDetails = () => {
                 <div className='chef-text'>
                     <h2 className=''>Hi, I am {chef_data.chef_name}.</h2>
                 </div>
-                
-                    <img className='chef-banner-image' src={chef_data.img} alt="" />
+
+                <img className='chef-banner-image' src={chef_data.img} alt="" />
             </section>
 
             <div className='container hr'></div>
@@ -38,8 +39,19 @@ const ChefDetails = () => {
             </section>
 
 
-            <section>
+            <section className='container chef-recipes'>
+                <h3>My Popular Recipes</h3>
 
+                <div className='chefs-recipe'>
+
+
+                    {
+                        recipe_data.map(recipe => <RecipeCard
+                            key={recipe.id}
+                            recipe={recipe}
+                        ></RecipeCard>)
+                    }
+                </div>
             </section>
         </div>
     );

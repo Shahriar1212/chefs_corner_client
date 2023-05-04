@@ -22,13 +22,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     height: 100px;
     
 }
 
 .info-card{
-    border: 1px solid salmon;
+    /* border: 1px solid #F2F2F2; */
     text-align: center;
     width: 200px;
     border-radius: 5px;
@@ -38,4 +38,11 @@
     font-size: 30px;
     font-weight: bold;
     color: rgb(174, 174, 143);
+}
+
+.chefs-recipe{
+    /* width: 400px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
