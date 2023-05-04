@@ -16,6 +16,7 @@ import ChefDetails from './components/ChefDetails/ChefDetails.jsx';
 import RecipeDetails from './components/RecipeDetails/RecipeDetails.jsx';
 import AuthProviders from './Providers/AuthProviders.jsx';
 import PrivateRoute from './routs/PrivateRoute.jsx';
+import NotFound from './components/NotFound/NotFound.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: '*',
+    element: <NotFound></NotFound>,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

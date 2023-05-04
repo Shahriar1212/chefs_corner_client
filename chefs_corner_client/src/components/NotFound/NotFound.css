@@ -1,0 +1,13 @@
+.four04-image{
+    width: 600px;
+    height: 500px;
+}
+
+.bg-image{
+    background-image: url('../../../public/images/404.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* width: 200px; */
+    height: 100vh;
+    position: relative;
+}
