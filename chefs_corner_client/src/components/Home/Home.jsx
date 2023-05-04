@@ -1,6 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ChefCard from '../ChefCard/ChefCard';
+import './Home.css'
 
 const Home = () => {
+
+
+    const [chefs, setChefs] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/chefs')
+            .then(res => res.json())
+            .then(data => setChefs(data))
+            .catch(error => console.error(error))
+    }, [])
+
     return (
         <div>
             <section className='container d-flex'>
@@ -13,7 +26,24 @@ const Home = () => {
                 </div>
             </section>
 
-            
+            <section className='container'>
+                <h2>Top Chefs</h2>
+                
+                <h3>{chefs.length}</h3>
+
+                <div className='chef-card'>
+
+                
+                    {
+                        chefs.map(chef => <ChefCard 
+                            key={chef.chef_id}
+                            chef={chef}
+                        ></ChefCard>)
+                    }
+                </div>
+            </section>
+
+
         </div>
     );
 };
