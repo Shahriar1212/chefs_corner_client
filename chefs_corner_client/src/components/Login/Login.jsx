@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaGoogle, FaGithub } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
@@ -31,7 +32,7 @@ const Login = () => {
                 <button type="button" className="btn btn-primary btn-block mb-4">Sign in</button>
 
                 <div className="text-center">
-                    <p className='text-success'>Not a member? <a href="#!">Register</a></p>
+                    <p className='text-success'>Not a member? <Link to="/register">Register</Link></p>
                     <p className='text-success'>or sign up with</p>
                     <button type="button" className="btn btn-link btn-floating mx-1">
                     <FaGoogle />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
-import { Form } from 'react-router-dom';
+import { Form, Link, NavLink } from 'react-router-dom';
+import './Header.css'
 
 const Header = () => {
     return (
@@ -12,12 +13,12 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="#home">Home</Nav.Link>
-                            <Nav.Link href="#blog">Blog</Nav.Link>
+                            <NavLink className='text-decoration-none me-2' to="/">Home</NavLink>
+                            <NavLink className='text-decoration-none' to="/blog">Blog</NavLink>
                         </Nav>
                     </Navbar.Collapse>
 
-                    <button className='btn btn-primary'>Login</button>
+                    <button className='btn btn-primary'><Link className='text-white text-decoration-none' to="/login">Login</Link></button>
                 </Container>
             </Navbar>
         </div>
