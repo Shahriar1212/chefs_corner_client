@@ -1,9 +1,10 @@
 import React from 'react';
 import './ChefCard.css'
 import { FaThumbsUp } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const ChefCard = (props) => {
-    const { chef_name,img, years_of_experience, number_of_recipes, number_of_likes } = props.chef;
+    const { chef_id, chef_name,img, years_of_experience, number_of_recipes, number_of_likes } = props.chef;
 
     // console.log(chefs.length);
     return (
@@ -19,6 +20,7 @@ const ChefCard = (props) => {
                 
                 
                 </div>
+                <Link to={`chef/${chef_id}`} className='btn btn-primary'>View Recipes</Link>
                 <button className='btn btn-primary'>View Recipes</button>
             </div>
         </div>
