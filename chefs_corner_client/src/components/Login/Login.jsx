@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { FaFacebookF, FaGoogle, FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Login = () => {
 
 
     const { signIn, signInWithGoogle, sighInWithGitHub } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -20,6 +21,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate('/', { replace: true });
         })
         .catch(error => {
             console.log(error);
@@ -32,6 +34,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate('/', { replace: true });
         })
         .catch(error => {
             console.log(error);
@@ -43,6 +46,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate('/', { replace: true });
         })
         .catch(error => {
             console.log(error);
