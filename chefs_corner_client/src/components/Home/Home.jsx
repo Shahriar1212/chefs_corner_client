@@ -6,6 +6,7 @@ import RecipeCard from '../RecipeCard/RecipeCard';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
 import banner from '../../assets/banner.jpg';
+import ControlledCarousel from '../ControlledCarousel/ControlledCarousel';
 
 const Home = () => {
 
@@ -37,15 +38,17 @@ const Home = () => {
 
     return (
         <div>
-            <section className='container d-flex'>
-                <div className='flex-grow-2 d-flex flex-column justify-content-center align-items-center'>
+            {/* <section className='container row mb-4'>
+                <div className='flex-grow-2 d-flex flex-column justify-content-center align-items-center col-md-6'>
                     <h2 className='w-75 text-center'>Fun and Easy to become Master Cook</h2>
                     <button className='btn btn-outline-info'>See Them All</button>
                 </div>
-                <div className='flex-grow-1'>
+                <div className='flex-grow-1 col-md-6'>
                     <img className='img-fluid' src={banner} placeholder='banner image' alt="" />
                 </div>
-            </section>
+            </section> */}
+
+            <ControlledCarousel></ControlledCarousel>
 
             <div className='container hr'></div>
 
@@ -53,7 +56,7 @@ const Home = () => {
             <section className='container'>
                 <h2 className='text-center'>Top Chefs</h2>
 
-                <div className='chef-card'>
+                <div className='container row mx-auto'>
 
 
                     {
@@ -71,7 +74,7 @@ const Home = () => {
             <section className='container chef-recipes'>
                 <h2 className='text-black text-center'>Editors Pick</h2>
 
-                <div className='chefs-recipe'>
+                <div className='container row mx-auto'>
 
 
                     {

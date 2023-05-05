@@ -17,6 +17,7 @@ const ChefDetails = () => {
             <section className='container chef-banner'>
                 <div className='chef-text'>
                     <h2 className=''>Hi, I am {chef_data.chef_name}.</h2>
+                    <p className='text-black'>Hi there! i am {chef_data.chef_name} I'm a passionate chef who loves creating delicious dishes for people to enjoy. I've been in the industry for {chef_data.years_of_experience} years and have honed my skills in a variety of cuisines. Whether it's a fancy dinner or a cozy meal at home, I take pride in making every dish taste amazing. Join me on this culinary journey and let's explore the world of food together!</p>
                 </div>
 
                 <img className='chef-banner-image' src={chef_data.img} alt="" />

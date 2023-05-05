@@ -8,7 +8,7 @@ const ChefCard = (props) => {
 
     // console.log(chefs.length);
     return (
-        <div className='chef-singl-card'>
+        <div className='chef-singl-card col-md-4'>
             <img className='chef-card-image img-fluid' src={img} alt="" />
             <h3 className='text-black'>{chef_name}</h3>
             <p className='text-black'>Year of Experience: {years_of_experience}</p>

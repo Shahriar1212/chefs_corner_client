@@ -2,12 +2,10 @@
     border-radius: 5px;
 }
 .single-recipe-card{
-    width: 400px;
+    /* width: 400px; */
     height: 350px;
     margin: 0px auto;
     text-align: center;
     padding: 10px;
-    margin: 10px;
     border-radius: 5px;
-    border: 1px solid #F2F2F2;
 }
