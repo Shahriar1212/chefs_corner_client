@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import Rating from 'react-rating';
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import banner from '../../assets/banner.jpg';
 
 const Home = () => {
 
@@ -42,7 +43,7 @@ const Home = () => {
                     <button className='btn btn-outline-info'>See Them All</button>
                 </div>
                 <div className='flex-grow-1'>
-                    <img className='img-fluid' src="../../../public/images/banner.jpg" alt="" />
+                    <img className='img-fluid' src={banner} placeholder='banner image' alt="" />
                 </div>
             </section>
 
