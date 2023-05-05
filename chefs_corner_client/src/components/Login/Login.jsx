@@ -1,13 +1,17 @@
-import React, { useContext } from 'react';
-import { FaFacebookF, FaGoogle, FaGithub } from 'react-icons/fa';
+import React, { useContext, useState } from 'react';
+import { FaFacebookF, FaGoogle, FaGithub, FaEnvelopeOpen } from 'react-icons/fa';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
 
     const { signIn, signInWithGoogle, sighInWithGitHub } = useContext(AuthContext);
     const navigate = useNavigate();
+
+    const [error, setError] = useState('');
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -24,7 +28,9 @@ const Login = () => {
             navigate('/', { replace: true });
         })
         .catch(error => {
-            console.log(error);
+            console.log(error.message);
+            setError(error.message);
+            toast.warn(error.message);
         })
 
     }
@@ -37,7 +43,9 @@ const Login = () => {
             navigate('/', { replace: true });
         })
         .catch(error => {
-            console.log(error);
+            console.log(error.message);
+            setError(error.message);
+            toast.warn(error.message);
         })
     }
 
@@ -49,24 +57,31 @@ const Login = () => {
             navigate('/', { replace: true });
         })
         .catch(error => {
-            console.log(error);
+            console.log(error.message);
+            setError(error.message);
+            toast.warn(error.message);
+
         })
     }
 
     return (
+        
         <div>
             <form className=' container mt-5 w-25' onSubmit={handleLogin}>
                 <div className="form-outline mb-4">
-                    <input type="email" name="email" className="form-control" />
+                    <input type="email" name="email" required className="form-control" />
 
                     <label className="form-label" >Email address</label>
                 </div>
 
-                <div className="form-outline mb-4">
-                    <input type="password" name="password" className="form-control" />
+                <div className="form-outline mb-3">
+                    <input type="password" name="password" required className="form-control" />
                     <label className="form-label" >Password</label>
                 </div>
 
+                <div className="row">
+                    <p className='text-red'>{error}</p>
+                </div>
                 <div className="row mb-4">
                     {/* <div className="col d-flex justify-content-center">
                         <div className="form-check">
@@ -74,7 +89,7 @@ const Login = () => {
                             <label className="form-check-label" > Remember me </label>
                         </div>
                     </div> */}
-
+                    <ToastContainer />
                     <div className="col">
                         <a href="#!" className='text-primary'>Forgot password?</a>
                     </div>

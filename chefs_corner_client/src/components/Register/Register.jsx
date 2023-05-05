@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import app from '../../firebase/firebase.config';
 import { getAuth } from 'firebase/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -13,6 +15,8 @@ const Register = () => {
 
     const { user, createUser, update } = useContext(AuthContext);
     const navigate = useNavigate();
+    const [error, setError] = useState('');
+
 
     const handleregister = (event) => {
 
@@ -35,12 +39,14 @@ const Register = () => {
             })
             .catch(error => {
                 console.log(error);
+                setError(error.message);
+                toast.warn(error.message);
             })
 
-            
 
 
-        
+
+
 
 
     }
@@ -51,28 +57,29 @@ const Register = () => {
             <form className=' container mt-5 w-25' onSubmit={handleregister}>
 
                 <div className="form-outline mb-4">
-                    <input type="text" name="displayName" className="form-control" />
+                    <input type="text" name="displayName" required className="form-control" />
                     <label className="form-label" >Your Name</label>
                 </div>
                 <div className="form-outline mb-4">
-                    <input type="email" name="email" className="form-control" />
+                    <input type="email" name="email" required className="form-control" />
                     <label className="form-label" >Email address</label>
                 </div>
 
                 <div className="form-outline mb-4">
-                    <input type="password" name="password" className="form-control" />
+                    <input type="password" name="password" required className="form-control" />
                     <label className="form-label" >Password</label>
                 </div>
 
-                <div className="form-outline mb-4">
-                    <input type="text" name="photo" className="form-control" />
+                <div className="form-outline mb-3">
+                    <input type="text" name="photo" required className="form-control" />
                     <label className="form-label" >Photo URL</label>
                 </div>
 
-                <div className="row mb-4">
 
+                <div className="row">
+                    <p className='text-red'>{error}</p>
                 </div>
-
+                <ToastContainer />
                 <button className="btn btn-primary btn-block mb-4">Sign Up</button>
 
                 <div className="text-center">
