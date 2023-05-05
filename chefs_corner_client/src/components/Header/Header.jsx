@@ -6,13 +6,13 @@ import { AuthContext } from '../../Providers/AuthProviders';
 
 const Header = () => {
 
-    const {user, logOut } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
         logOut()
-        .then(()=>{})
-        .then(error => {
-            console.error(error);
-        })
+            .then(() => { })
+            .then(error => {
+                console.error(error);
+            })
     }
 
 
@@ -29,13 +29,28 @@ const Header = () => {
                             <NavLink className='text-decoration-none' to="/blog">Blog</NavLink>
                         </Nav>
                     </Navbar.Collapse>
+
                     {
-                        user ? <div>
-                            <span className='user-email'>{user && user.email}</span>
-                            <button className="btn btn-primary" onClick={handleLogOut}>Sigh Out</button>
-                        </div> : <><button className='btn btn-primary'><Link className='text-white text-decoration-none' to="/login">Login</Link></button></>
+                        user ?
+                                <Nav className="me-auto">
+                                    <div className="d-flex justify-content-center align-items-center me-2">
+                                        <img src={user.photoURL} placeholder='user image' title={user.displayName}
+                                            className="rounded-circle shadow-1-strong" width="40" height="40" />
+                                    </div>
+                                </Nav>
+                            :
+                            <div></div>
                     }
-                    
+                    {
+                        user ?
+                            <div>
+                                <span className='user-email'>{user && user.email}</span>
+                                <button className="btn btn-primary" onClick={handleLogOut}>Sigh Out</button>
+                            </div>
+                            :
+                            <><button className='btn btn-primary'><Link className='text-white text-decoration-none' to="/login">Login</Link></button></>
+                    }
+
                 </Container>
             </Navbar>
         </div>
