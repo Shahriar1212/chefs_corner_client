@@ -67,7 +67,7 @@ const Login = () => {
     return (
         
         <div>
-            <form className=' container mt-5 w-25' onSubmit={handleLogin}>
+            <form className=' container mt-5 col-md-3 mx-auto' onSubmit={handleLogin}>
                 <div className="form-outline mb-4">
                     <input type="email" name="email" required className="form-control" />
 

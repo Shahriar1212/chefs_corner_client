@@ -54,7 +54,7 @@ const Register = () => {
 
     return (
         <div>
-            <form className=' container mt-5 w-25' onSubmit={handleregister}>
+            <form className=' container mt-5 col-md-3 mx-auto' onSubmit={handleregister}>
 
                 <div className="form-outline mb-4">
                     <input type="text" name="displayName" required className="form-control" />

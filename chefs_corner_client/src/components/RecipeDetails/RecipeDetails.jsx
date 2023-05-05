@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Rating from 'react-rating';
 import { FaStar, FaRegStar, FaClock, FaClipboardList } from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
 import './RecipeDetails.css'
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const RecipeDetails = () => {
 
+    const [isActive, setIsActive] = useState(false);
     const data = useLoaderData();
+
+    const handleFavorite = () => {
+        setIsActive(true);
+        toast("Recipi added to favorite");
+    }
+
     console.log(data);
     return (
         <div>
+            <ToastContainer />
             <section className='container'>
 
                 <div className="row">
@@ -30,6 +40,7 @@ const RecipeDetails = () => {
 
                             <p className='mt-3'><FaClock></FaClock>  Ready in : {data.time}</p>
                             <p><FaClipboardList></FaClipboardList>  Ingredients : {data.ingredients.length}</p>
+                            <button className='btn btn-primary' disabled={isActive} onClick={handleFavorite}>Favorite</button>
                         </div>
                     </div>
                 </div>
